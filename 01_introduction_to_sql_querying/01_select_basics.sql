@@ -70,4 +70,28 @@ SELECT COUNT(DISTINCT age) FROM students;
 
 SELECT COUNT(*) FROM students WHERE email LIKE '%gmail.com';
 
-select * FROM students WHERE firstname NOT LIKE 'M____'
+SELECT * FROM students WHERE firstname NOT LIKE 'M____';
+
+-- FILTERING WITH IN
+
+SELECT * FROM students WHERE age IN (60, 61, 62);
+
+-- FILTERING WITH BETWEEN
+
+SELECT * FROM students WHERE age BETWEEN 60 AND 62;
+
+-- ORDER BY clause
+
+SELECT * FROM students ORDER BY id DESC;
+
+-- ORDER BY mutliple columns
+
+SELECT * FROM students ORDER BY firstname ASC, lastname ASC, id ASC;
+
+-- SPECIFYING OFFSET
+
+SELECT * FROM students ORDER BY id ASC OFFSET 10 ROWS;
+
+-- SPECIFYING LIMIT
+
+SELECT * FROM students ORDER BY id ASC OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
