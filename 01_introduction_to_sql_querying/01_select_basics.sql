@@ -34,3 +34,40 @@ multi
 line
 comment
 */
+
+-- LABELING TABLE NAMES
+
+SELECT firstname AS f, lastname AS l FROM students;
+
+-- AGGREGATE FUNCTIONS
+
+SELECT COUNT(*) FROM students;
+SELECT COUNT(*) FROM students WHERE age = 25;
+
+SELECT MAX(age) FROM students;
+SELECT MIN(age) FROM students;
+SELECT SUM(age) FROM students;
+SELECT AVG(age) FROM students;
+
+-- ERROR: ACCESING A TABLE AND AGGREGATING FUNCTION
+
+-- SELECT firstname, COUNT(*) FROM students;
+/* Execute fail : kolumna "students.firstname" musi występować w klauzuli GROUP BY lub być użyta w funkcji agregującej */
+
+-- COMBINIG MULTIPLE AGGREGATE FUNCTIONS
+
+SELECT COUNT(*), MAX(age), MIN(age) FROM students;
+
+-- SELECTING ONLY DISTINC ENTRIES
+
+SELECT DISTINCT age FROM students;
+
+-- COMBINIG DISTINCT AND AGGREGATE FUNCTIONS
+
+SELECT COUNT(DISTINCT age) FROM students;
+
+-- FILTERING WITH LIKE
+
+SELECT COUNT(*) FROM students WHERE email LIKE '%gmail.com';
+
+select * FROM students WHERE firstname NOT LIKE 'M____'
